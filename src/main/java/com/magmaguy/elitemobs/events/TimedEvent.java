@@ -156,7 +156,7 @@ public class TimedEvent extends CustomEvent implements Listener {
         primaryEliteMobs.forEach(CustomBossEntity::announceSpawn);
 
         //Hardcoded 5 minute minimum wait time between events before the next event can get queued
-        setNextEventTrigger(5);
+        setNextEventTrigger(globalCooldown);
         start();
     }
 
