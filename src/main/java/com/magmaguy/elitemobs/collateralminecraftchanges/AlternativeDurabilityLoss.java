@@ -5,6 +5,8 @@ import com.magmaguy.elitemobs.api.utils.EliteItemManager;
 import com.magmaguy.elitemobs.config.ItemSettingsConfig;
 import com.magmaguy.elitemobs.items.ItemTagger;
 import com.magmaguy.elitemobs.utils.EntityFinder;
+
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -47,7 +49,31 @@ public class AlternativeDurabilityLoss implements Listener {
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onDurabilityLoss(PlayerItemDamageEvent event) {
         if (!EliteItemManager.isEliteMobsItem(event.getItem())) return;
-        event.setCancelled(true);
+        Material material = event.getItem().getType();
+        if (
+            (material == Material.WOODEN_PICKAXE 
+            || material == Material.STONE_PICKAXE
+            || material == Material.IRON_PICKAXE
+            || material == Material.GOLDEN_PICKAXE 
+            || material == Material.DIAMOND_PICKAXE
+            || material == Material.NETHERITE_PICKAXE
+            || material == Material.WOODEN_SHOVEL 
+            || material == Material.STONE_SHOVEL
+            || material == Material.IRON_SHOVEL
+            || material == Material.GOLDEN_SHOVEL 
+            || material == Material.DIAMOND_SHOVEL
+            || material == Material.NETHERITE_SHOVEL
+            || material == Material.WOODEN_AXE 
+            || material == Material.STONE_AXE
+            || material == Material.IRON_AXE
+            || material == Material.GOLDEN_AXE 
+            || material == Material.DIAMOND_AXE
+            || material == Material.NETHERITE_AXE
+            ) && event.getDamage() <= 1
+        )
+            return; // take normal damage if using it the right way
+        else
+            event.setCancelled(true);
     }
 
     public static void doDurabilityLoss(Player player) {
