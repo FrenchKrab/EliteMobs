@@ -25,7 +25,7 @@ public class TimedEvent extends CustomEvent implements Listener {
     protected static List<TimedEvent> timedEvents = new ArrayList<>();
     //stores the time of the last global trigger
     @Getter
-    private static double nextEventTrigger = System.currentTimeMillis() + 5D * 60D * 1000D;
+    private static double nextEventTrigger = System.currentTimeMillis() + 1D * 60D * 1000D;
     private final double localCooldown;
     private final double globalCooldown;
     private final double weight;
@@ -63,7 +63,7 @@ public class TimedEvent extends CustomEvent implements Listener {
                 if (System.currentTimeMillis() < nextEventTrigger) return;
                 pickEvent();
             }
-        }.runTaskTimer(MetadataHandler.PLUGIN, 20L * 60L * 5L, 20L * 60L);
+        }.runTaskTimer(MetadataHandler.PLUGIN, 20L * 60L, 20L * 60L);
     }
 
     private static void pickEvent() {
