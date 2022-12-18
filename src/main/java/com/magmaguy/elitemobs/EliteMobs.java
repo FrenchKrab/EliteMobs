@@ -141,6 +141,7 @@ public class EliteMobs extends JavaPlugin {
         Bukkit.getLogger().info("\\____/\\_____/\\___/  \\_/ \\____/\\_|  |_/\\___/\\____/ \\____/");
         MetadataHandler.PLUGIN = this;
         Bukkit.getLogger().info("By MagmaGuy - v. " + MetadataHandler.PLUGIN.getDescription().getVersion());
+        Bukkit.getLogger().info("Community Edition - KRABY");
 
         ServerTime.startTickCounter();
 
