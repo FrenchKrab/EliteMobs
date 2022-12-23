@@ -566,8 +566,8 @@ public class EliteEntity {
     public void setTriggeredAntiExploit(boolean triggeredAntiExploit) {
         this.triggeredAntiExploit = triggeredAntiExploit;
         if (triggeredAntiExploit) {
-            this.eliteLoot = false;
-            this.vanillaLoot = false;
+            this.eliteLoot = !AntiExploitConfig.isDisableEliteLoot();
+            this.vanillaLoot = !AntiExploitConfig.isDisableVanillaLoot();
         }
     }
 
